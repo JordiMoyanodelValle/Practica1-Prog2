@@ -1,4 +1,4 @@
 package prog2.model;
 
-public class Clients {
+public class Client {
 }
