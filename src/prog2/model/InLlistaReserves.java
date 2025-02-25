@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * Interfície per definir la forma de la llista de reserves
  * @author lauraigual
  */
-public interface InLlistaReserves {
+public interface InLlistaReserves{
     
     /**
      * Comprova que l'allotjament estigui disponible pel dia i hora indicat.

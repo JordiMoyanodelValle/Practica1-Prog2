@@ -1,4 +1,4 @@
 package prog2.model;
 
-public class Allotjament {
+public class Allotjament implements InAllotjament {
 }
