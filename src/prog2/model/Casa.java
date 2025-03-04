@@ -1,23 +1,14 @@
 package prog2.model;
 
 public class Casa extends Allotjament{
-    private String nom;
-    private String IdAllotjament;
     private String mida;
     private int habitacions;
     private int capacitat;
-    public Casa (String nom, String IdAllotjament, String mida, int habitacions, int capacitat){
-        this.nom = nom;
-        this.IdAllotjament = IdAllotjament;
+    public Casa (String nom, String idAllotjament, String mida, int habitacions, int capacitat){
+        super(nom, idAllotjament);
         this.mida = mida;
         this.habitacions = habitacions;
         this.capacitat = capacitat;
-    }
-    public String getNom() {
-        return nom;
-    }
-    public String getIdAllotjament() {
-        return IdAllotjament;
     }
     public String getMida() {
         return mida;
@@ -28,12 +19,7 @@ public class Casa extends Allotjament{
     public int getCapacitat() {
         return capacitat;
     }
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    public void setIdAllotjament(String idAllotjament) {
-        IdAllotjament = idAllotjament;
-    }
+
     public void setMida(String mida) {
         this.mida = mida;
     }
