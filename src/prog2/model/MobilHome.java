@@ -6,4 +6,10 @@ public class MobilHome extends Casa{
         super(nom, id, mida, habitacions, capacitat);
         this.terrasaAmbBarbacoa = terrasaAmbBarbacoa;
     }
+    public boolean isTerrasaAmbBarbacoa() {
+        return terrasaAmbBarbacoa;
+    }
+    public void setTerrasaAmbBarbacoa(boolean terrasaAmbBarbacoa) {
+        this.terrasaAmbBarbacoa = terrasaAmbBarbacoa;
+    }
 }
