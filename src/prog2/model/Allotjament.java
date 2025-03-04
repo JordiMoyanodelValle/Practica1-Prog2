@@ -11,21 +11,32 @@ public class Allotjament implements InAllotjament {
         return this.nom;
     }
 
-    @Override
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    @Override
     public void setId(String id) {
         this.idAllotjament = id;
     }
 
-    @Override
     public String getId() {
         return idAllotjament;
     }
 
+
+    public boolean correcteFuncionament() {
+        return false;
+    }
+
+
+    public long getEstadaMinima(Temp temp) {
+        return 0;
+    }
+
+
+    public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_) {
+
+    }
 }
 
 
