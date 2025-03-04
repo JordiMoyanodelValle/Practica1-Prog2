@@ -47,6 +47,11 @@ public class Camping implements InCamping{
         Bungalow bungalow = new Bungalow(nom_,idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
         this.llistaAllotjaments.add(bungalow);
     }
+    void afegirBungalowPremium(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
+                               int placesParquing, boolean terrassa, boolean tv, boolean aireFred,
+                               boolean serveisExtra, String codiWifi){
+        BungalowPremium = new BungalowPremium()
+    }
 }
 
 
