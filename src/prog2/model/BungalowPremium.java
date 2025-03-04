@@ -13,4 +13,6 @@ public class BungalowPremium extends Bungalow{
         this.Wifi = Wifi;
     }
 
+    public
+
 }
