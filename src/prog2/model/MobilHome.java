@@ -11,5 +11,6 @@ public class MobilHome extends Casa{
     }
     public void setTerrasaAmbBarbacoa(boolean terrasaAmbBarbacoa) {
         this.terrasaAmbBarbacoa = terrasaAmbBarbacoa;
+
     }
 }
