@@ -50,7 +50,7 @@ public interface InAllotjament {
      * La implementació dependrà dels criteris específics de cada tipus d'allotjament.
      * @return true si l'allotjament funciona correctament, false altrament.
      */
-    boolean correcteFuncionament();
+    boolean correcteFuncionament(Allotjament allotjament);
 
     /**
      * Enumeració que representa les diferents temporades possibles.

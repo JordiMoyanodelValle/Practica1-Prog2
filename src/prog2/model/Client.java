@@ -3,6 +3,7 @@ package prog2.model;
 import prog2.vista.ExcepcioReserva;
 
 public class Client {
+
     private String nom_;
     private String dni_;
 
