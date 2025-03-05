@@ -3,12 +3,12 @@ package prog2.model;
 public class Parcela extends Allotjament {
 
     private float metres;
-    private boolean connexióElectrica;
+    private boolean connexioElectrica;
 
-    public Parcela (String nom, String idAllotjament, float metres , boolean conexióElectrica){
+    public Parcela (String nom, String idAllotjament, float metres , boolean conexioElectrica){
         super(nom, idAllotjament);
         this.metres = metres;
-        this.connexióElectrica = conexióElectrica;
+        this.connexioElectrica = conexioElectrica;
     }
 
     public float getMetres(){
@@ -16,14 +16,14 @@ public class Parcela extends Allotjament {
     }
 
     public boolean getConexioElectrica(){
-        return connexióElectrica;
+        return connexioElectrica;
     }
 
     public void setMetres(float metres){
         this.metres = metres;
     }
 
-    public void setConexióElectrica(boolean con){
-        this.connexióElectrica = con;
+    public void setConexioElectrica(boolean con){
+        this.connexioElectrica = con;
     }
 }
