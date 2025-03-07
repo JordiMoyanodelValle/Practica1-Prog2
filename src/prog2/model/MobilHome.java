@@ -2,19 +2,19 @@ package prog2.model;
 
 public class MobilHome extends Casa{
 
-    private boolean terrasaAmbBarbacoa;
+    private boolean terrassaAmbBarbacoa;
 
-    public MobilHome(String nom, String id, String mida, int habitacions, int capacitat, boolean terrasaAmbBarbacoa) {
+    public MobilHome(String nom, String id, String mida, int habitacions, int capacitat, boolean terrassaAmbBarbacoa) {
         super(nom, id, mida, habitacions, capacitat);
-        this.terrasaAmbBarbacoa = terrasaAmbBarbacoa;
+        this.terrassaAmbBarbacoa = terrassaAmbBarbacoa;
     }
 
-    public boolean isTerrasaAmbBarbacoa() {
-        return terrasaAmbBarbacoa;
+    public boolean isTerrassaAmbBarbacoa() {
+        return terrassaAmbBarbacoa;
     }
 
-    public void setTerrasaAmbBarbacoa(boolean terrasaAmbBarbacoa) {
-        this.terrasaAmbBarbacoa = terrasaAmbBarbacoa;
+    public void setTerrassaAmbBarbacoa(boolean terrassaAmbBarbacoa) {
+        this.terrassaAmbBarbacoa = terrassaAmbBarbacoa;
 
     }
 }

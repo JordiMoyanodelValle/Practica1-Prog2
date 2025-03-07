@@ -14,6 +14,9 @@ public class Camping implements InCamping{
 
     public Camping (String nom) {
         this.nom = nom;
+        this.llistaReserves = new LlistaReserves();
+        this.llistaAllotjaments = new ArrayList<>();
+        this.llistaClients = new ArrayList<>();
     }
 
     public String getNom(){
@@ -44,15 +47,15 @@ public class Camping implements InCamping{
         return this.llistaClients.size();
     }
 
-    public void afegirClient(String nom, String dni){
-        Client client = new Client (nom, dni);
+    public void afegirClient(String nom_, String dni_) throws ExcepcioReserva {
+        Client client = new Client (nom_, dni_);
         this.llistaClients.add(client);
 
     }
 
-    public void afegirParcela(String nom, String IdAllotjament, float metres, boolean connexióElectrica){
-        Parcela parcela = new Parcela (nom, IdAllotjament, metres, connexióElectrica);
-        llistaAllotjaments.add(parcela);
+    public void afegirParcela(String nom_, String IdAllotjament_, float metres, boolean connexioElectrica){
+        Parcela parcela = new Parcela (nom_, IdAllotjament_, metres, connexioElectrica);
+        this.llistaAllotjaments.add(parcela);
     }
 
     public void afegirBungalow(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
@@ -66,7 +69,7 @@ public class Camping implements InCamping{
                                       int placesParquing, boolean terrassa, boolean tv, boolean aireFred,
                                       boolean serveisExtra, String codiWifi){
         BungalowPremium BungalowPremium = new BungalowPremium(nom_, idAllotjament_, mida, habitacions, placesPersones,
-                                                            placesParquing, terrassa, tv, aireFred);
+                                                            placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
     }
 
     public void afegirGlamping(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
@@ -109,14 +112,31 @@ public class Camping implements InCamping{
     }
 
     public float calculMidaTotalParceles() {
-        return 0;
+        float midaTotal = 0;
+        for (Allotjament allotjament : llistaAllotjaments) {
+            if (allotjament instanceof Parcela) {
+                Parcela parcela = (Parcela) allotjament;
+                midaTotal = midaTotal + parcela.getMetres();
+            }
+        }
+        return midaTotal;
     }
 
     public int calculAllotjamentsOperatius() {
-        return 0;
+        int numAllotjaments = 0;
+        for (Allotjament allotjament : llistaAllotjaments) {
+            if (allotjament.correcteFuncionament()) numAllotjaments++;
+        }
+        return numAllotjaments;
     }
 
     public Allotjament getAllotjamentEstadaMesCurta() {
-        return null;
+        Allotjament allMesCurta = null;
+        for (Allotjament allotjament : llistaAllotjaments) {
+            if (allotjament.getEstadaMinima(InAllotjament.Temp.BAIXA) <= allMesCurta.getEstadaMinima(InAllotjament.Temp.BAIXA)) {
+                allMesCurta = allotjament;
+            }
+        }
+        return allMesCurta;
     }
 }

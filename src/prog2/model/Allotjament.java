@@ -1,9 +1,13 @@
 package prog2.model;
 
+import prog2.vista.ExcepcioReserva;
+
 public class Allotjament implements InAllotjament {
 
     private String nom;
     private String idAllotjament;
+    long estadaMinimaALTA;
+    long estadaMinimaBAIXA;
 
     public Allotjament (String nom, String idAllotjament) {
         this.nom = nom;
@@ -26,8 +30,9 @@ public class Allotjament implements InAllotjament {
         return idAllotjament;
     }
 
-    public boolean correcteFuncionament(Allotjament allotjament) {
+    public boolean correcteFuncionament() {
 
+        Allotjament allotjament = this;
         if (allotjament instanceof Parcela) {
             Parcela parcela = (Parcela) allotjament;
             return parcela.getConexioElectrica();
@@ -35,7 +40,7 @@ public class Allotjament implements InAllotjament {
             Casa casa = (Casa) allotjament;
             if (casa instanceof MobilHome) {
                 MobilHome mobilHome = (MobilHome) casa;
-                return mobilHome.isTerrasaAmbBarbacoa();
+                return mobilHome.isTerrassaAmbBarbacoa();
             } else if (casa instanceof Glamping) {
                 Glamping glamping = (Glamping) casa;
                 return glamping.isCasaMascotes();
@@ -43,7 +48,7 @@ public class Allotjament implements InAllotjament {
                 Bungalow bungalow = (Bungalow) casa;
                 if (bungalow instanceof BungalowPremium) {
                     BungalowPremium bungalowPre = (BungalowPremium) bungalow;
-                    return bungalowPre.getWifi().length() >= 8 && bungalowPre.getWifi().length() <= 16 && bungalowPre.isAireFred();
+                    return bungalowPre.getCodiWifi().length() >= 8 && bungalowPre.getCodiWifi().length() <= 16 && bungalowPre.isAireFred();
                 } else { /* Si bungalow no és de tipus premium */
                     return bungalow.isAireFred();
                 }
@@ -55,11 +60,14 @@ public class Allotjament implements InAllotjament {
         }
     }
 
+    /* He fet "if-else" ja que aquest codi només el cridem des del nostre codi (Camping.java)*/
     public long getEstadaMinima(Temp temp) {
-        return 0;
+        if (temp == Temp.ALTA) return this.estadaMinimaALTA;
+        else return this.estadaMinimaBAIXA;
     }
 
     public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_) {
-
+        this.estadaMinimaALTA = estadaMinimaALTA_;
+        this.estadaMinimaBAIXA = estadaMinimaBAIXA_;
     }
 }

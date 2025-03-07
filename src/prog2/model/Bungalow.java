@@ -44,4 +44,8 @@ public class Bungalow extends Casa {
         return aireFred;
     }
 
+    public void setAireFred(boolean aireFred) {
+        this.aireFred = aireFred;
+    }
+
 }

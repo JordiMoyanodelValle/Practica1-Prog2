@@ -7,13 +7,13 @@ public class Client {
     private String nom;
     private String dni;
 
-    Client(String nom , String dni){
+    Client(String nom , String dni) throws ExcepcioReserva {
         this.nom = nom;
         if (dni.length() == 9) {
             this.dni = dni;
         }
         else {
-            throw new ExcepcioReserva();
+            throw new ExcepcioReserva("No es pot crear un nou client perquè el dni introduït no te exactament 9 caràcters");
         }
     }
 

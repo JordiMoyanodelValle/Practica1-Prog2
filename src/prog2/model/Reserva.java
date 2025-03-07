@@ -8,9 +8,9 @@ public class Reserva {
 
     private Client client;
     private Allotjament allotjament;
-    private Data data;
+    private LocalDate data;
 
-    public Reserva(Client client, Allotjament allotjament, Data data) {
+    public Reserva(Client client, Allotjament allotjament, LocalDate data) {
         this.client = client;
         this.allotjament = allotjament;
         this.data = data;
@@ -32,11 +32,11 @@ public class Reserva {
         this.client = client;
     }
 
-    public Data getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Data data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 }
