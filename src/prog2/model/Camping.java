@@ -70,16 +70,19 @@ public class Camping implements InCamping{
                                       boolean serveisExtra, String codiWifi){
         BungalowPremium BungalowPremium = new BungalowPremium(nom_, idAllotjament_, mida, habitacions, placesPersones,
                                                             placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
+        this.llistaAllotjaments.add(BungalowPremium);
     }
 
     public void afegirGlamping(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                String material, boolean casaMascota) {
         Glamping glamping = new Glamping(nom_, idAllotjament_, mida, habitacions, placesPersones, material, casaMascota);
+        this.llistaAllotjaments.add(glamping);
     }
 
     public void afegirMobilHome(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                 boolean terrassaBarbacoa) {
         MobilHome mobilHome = new MobilHome(nom_, idAllotjament_, mida, habitacions, placesPersones, terrassaBarbacoa);
+        this.llistaAllotjaments.add(mobilHome);
     }
 
     public void afegirReserva(String id_, String dni_, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
@@ -116,7 +119,7 @@ public class Camping implements InCamping{
         for (Allotjament allotjament : llistaAllotjaments) {
             if (allotjament instanceof Parcela) {
                 Parcela parcela = (Parcela) allotjament;
-                midaTotal = midaTotal + parcela.getMetres();
+                midaTotal = midaTotal + parcela.getMida();
             }
         }
         return midaTotal;
@@ -139,4 +142,15 @@ public class Camping implements InCamping{
         }
         return allMesCurta;
     }
+    public static InAllotjament.Temp getTemporada(LocalDate data){
+        int dia = data.getDayOfMonth();
+        int mes = data.getMonthValue();
+
+        if ((mes > 3 && mes < 9) || (mes == 3 && dia >= 21) || (mes == 9 && dia < 21)) {
+            return InAllotjament.Temp.ALTA;
+        } else {
+            return InAllotjament.Temp.BAIXA;
+        }
+    }
+
 }

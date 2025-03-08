@@ -1,17 +1,21 @@
 package prog2.model;
 
 import prog2.vista.ExcepcioReserva;
+import java.time.LocalDate;
 
 public class Allotjament implements InAllotjament {
 
     private String nom;
     private String idAllotjament;
-    long estadaMinimaALTA;
-    long estadaMinimaBAIXA;
+    private long estadaMinimaALTA;
+    private long estadaMinimaBAIXA;
 
-    public Allotjament (String nom, String idAllotjament) {
+    public Allotjament (String nom, String idAllotjament, long EstadaMinimaALTA, long EstadaMinimaBAIXA) {
         this.nom = nom;
         this.idAllotjament = idAllotjament;
+        this.estadaMinimaALTA = EstadaMinimaALTA;
+        this.estadaMinimaBAIXA = EstadaMinimaBAIXA;
+
     }
 
     public String getNom() {
@@ -32,30 +36,43 @@ public class Allotjament implements InAllotjament {
 
     public boolean correcteFuncionament() {
 
-        Allotjament allotjament = this;
-        if (allotjament instanceof Parcela) {
-            Parcela parcela = (Parcela) allotjament;
-            return parcela.getConexioElectrica();
-        } else if (allotjament instanceof Casa) {
-            Casa casa = (Casa) allotjament;
+        if (this instanceof Parcela) {
+            Parcela parcela = (Parcela) this;
+            return parcela.isConnexioElectrica();
+
+        }
+
+        else if (this instanceof Casa) {
+            Casa casa = (Casa) this;
             if (casa instanceof MobilHome) {
                 MobilHome mobilHome = (MobilHome) casa;
                 return mobilHome.isTerrassaAmbBarbacoa();
-            } else if (casa instanceof Glamping) {
+            }
+
+
+            else if (casa instanceof Glamping) {
                 Glamping glamping = (Glamping) casa;
                 return glamping.isCasaMascotes();
-            } else if (casa instanceof Bungalow) {
+            }
+
+
+            else if (casa instanceof Bungalow) {
                 Bungalow bungalow = (Bungalow) casa;
                 if (bungalow instanceof BungalowPremium) {
                     BungalowPremium bungalowPre = (BungalowPremium) bungalow;
                     return bungalowPre.getCodiWifi().length() >= 8 && bungalowPre.getCodiWifi().length() <= 16 && bungalowPre.isAireFred();
-                } else { /* Si bungalow no és de tipus premium */
+                }
+                else { /* Si bungalow no és de tipus premium */
                     return bungalow.isAireFred();
                 }
-            } else { /* Si casa no és de cap dels tipus definits de Casa */
+            }
+
+            else { /* Si casa no és de cap dels tipus definits de Casa */
                 return false;
             }
-        } else { /* Si allotjament no és de cap dels tipus definits d'Allotjament */
+        }
+
+        else { /* Si allotjament no és de cap dels tipus definits d'Allotjament */
             return false;
         }
     }
@@ -69,5 +86,24 @@ public class Allotjament implements InAllotjament {
     public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_) {
         this.estadaMinimaALTA = estadaMinimaALTA_;
         this.estadaMinimaBAIXA = estadaMinimaBAIXA_;
+    }
+
+    // No hi habia cap funció per detectar la data actual
+
+
+    // He afegit , per validar la estada depenen de quin dia comença aquesta.
+    public void validarEstada(LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
+        long dies = java.time.temporal.ChronoUnit.DAYS.between(dataEntrada, dataSortida);
+        Temp temporada = Camping.getTemporada(dataEntrada);
+        long estadaMinima = getEstadaMinima(temporada);
+
+        if (dies < estadaMinima) {
+            throw new ExcepcioReserva("No compleixen l'estada mínima");
+        }
+    }
+    public String toString() {
+        return "Nom=" + nom + ", Id=" + idAllotjament +
+                ", estada mínima en temp ALTA: " + this.estadaMinimaALTA +
+                ", estada mínima en temp BAIXA: " + this.estadaMinimaBAIXA + ".";
     }
 }

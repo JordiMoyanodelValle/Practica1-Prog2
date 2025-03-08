@@ -8,12 +8,18 @@ public class Reserva {
 
     private Client client;
     private Allotjament allotjament;
-    private LocalDate data;
+    private LocalDate dataEntrada;
+    private LocalDate dataSortida;
 
-    public Reserva(Client client, Allotjament allotjament, LocalDate data) {
+    public Reserva(Client client, Allotjament allotjament, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
         this.client = client;
         this.allotjament = allotjament;
-        this.data = data;
+        this.dataEntrada = dataEntrada;
+        this.dataSortida = dataSortida;
+        if (dataEntrada.isAfter(dataSortida)){
+            throw new ExcepcioReserva("La data d'entrada ha de ser anterior a la de sortida");
+        }
+
     }
 
     public Allotjament getAllotjament() {
@@ -32,11 +38,19 @@ public class Reserva {
         this.client = client;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDate getDataEntrada() {
+        return dataEntrada;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setDataEntrada(LocalDate data) {
+        this.dataEntrada = data;
+    }
+
+    public LocalDate getDataSortida() {
+        return dataSortida;
+    }
+
+    public void setDataSortida(LocalDate data) {
+        this.dataSortida = data;
     }
 }

@@ -1,7 +1,11 @@
-package prog2.model;
+package tests.prog2.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import prog2.model.Allotjament;
+import prog2.model.Client;
+import prog2.model.Parcela;
+import prog2.model.Reserva;
 import prog2.vista.ExcepcioReserva;
 
 import java.time.LocalDate;
@@ -30,7 +34,7 @@ public class ReservaTest {
 
         // Creem la reserva amb els objectes creats
         try {
-            reserva = new Reserva(allotjament, client, dataEntrada, dataSortida);
+            reserva = new Reserva(client, allotjament, dataEntrada, dataSortida);
         } catch (ExcepcioReserva e) {
             throw new RuntimeException(e);
         }
@@ -39,7 +43,7 @@ public class ReservaTest {
     @Test
     public void testReservaConstructor() {
         // Comprovem que el constructor ha assignat correctament els valors
-        assertEquals(allotjament, reserva.getAllotjament_());
+        assertEquals(allotjament, reserva.getAllotjament());
         assertEquals(client, reserva.getClient());
         assertEquals(dataEntrada, reserva.getDataEntrada());
         assertEquals(dataSortida, reserva.getDataSortida());
@@ -48,7 +52,7 @@ public class ReservaTest {
     @Test
     public void testGetters() {
         // Comprovem que els getters tornen els valors correctes
-        assertEquals(allotjament, reserva.getAllotjament_());
+        assertEquals(allotjament, reserva.getAllotjament());
         assertEquals(client, reserva.getClient());
         assertEquals(dataEntrada, reserva.getDataEntrada());
         assertEquals(dataSortida, reserva.getDataSortida());
@@ -67,13 +71,13 @@ public class ReservaTest {
         LocalDate novaDataEntrada = LocalDate.of(2024, 6, 1);
         LocalDate novaDataSortida = LocalDate.of(2024, 6, 5);
 
-        reserva.setAllotjament_(nouAllotjament);
+        reserva.setAllotjament(nouAllotjament);
         reserva.setClient(nouClient);
         reserva.setDataEntrada(novaDataEntrada);
         reserva.setDataSortida(novaDataSortida);
 
         // Comprovem que els valors han sigut modificats correctament
-        assertEquals(nouAllotjament, reserva.getAllotjament_());
+        assertEquals(nouAllotjament, reserva.getAllotjament());
         assertEquals(nouClient, reserva.getClient());
         assertEquals(novaDataEntrada, reserva.getDataEntrada());
         assertEquals(novaDataSortida, reserva.getDataSortida());
@@ -88,7 +92,7 @@ public class ReservaTest {
         LocalDate dataSortidaIncorrecta = LocalDate.of(2024, 5, 1);
 
         assertThrows(ExcepcioReserva.class, () -> {
-            new Reserva(allotjament, client, dataEntradaIncorrecta, dataSortidaIncorrecta);
+            new Reserva(client, allotjament, dataEntradaIncorrecta, dataSortidaIncorrecta);
         });
     }
 }

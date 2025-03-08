@@ -145,7 +145,7 @@ public interface InCamping {
      * Cerca i retorna l'allotjament amb estada mínima de la temporada baixa més curta.
      * @return l'allotjament amb estada mínima de la temporada baixa més curta.
      */
-    Allotjament getAllotjamentEstadaMesCurta();
+
 
 
 

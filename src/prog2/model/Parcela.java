@@ -5,25 +5,26 @@ public class Parcela extends Allotjament {
     private float metres;
     private boolean connexioElectrica;
 
+
     public Parcela (String nom, String idAllotjament, float metres , boolean conexioElectrica){
-        super(nom, idAllotjament);
+        super(nom, idAllotjament, 4, 2);
         this.metres = metres;
         this.connexioElectrica = conexioElectrica;
     }
 
-    public float getMetres(){
+    public float getMida(){
         return metres;
     }
 
-    public boolean getConexioElectrica(){
+    public boolean isConnexioElectrica(){
         return connexioElectrica;
     }
 
-    public void setMetres(float metres){
+    public void setMida(float metres){
         this.metres = metres;
     }
 
-    public void setConexioElectrica(boolean con){
+    public void setConnexioElectrica(boolean con){
         this.connexioElectrica = con;
     }
 }
