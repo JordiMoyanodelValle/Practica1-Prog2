@@ -1,8 +1,9 @@
-package prog2.model;
+package tests.prog2.model;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import prog2.model.Client;
 import prog2.vista.ExcepcioReserva;
 
 

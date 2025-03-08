@@ -1,8 +1,10 @@
-package prog2.model;
+package tests.prog2.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import prog2.model.Allotjament;
+import prog2.model.InAllotjament;
 
 class AllotjamentTest {
 
@@ -12,7 +14,7 @@ class AllotjamentTest {
     void setUp() {
         // Creem una instància anònima d'Allotjament per a tests
 
-        allotjament = new Allotjament("Allotjament Test", "ID001", 5, 3) {
+        allotjament = new Allotjament("Allotjament Test", "ID001",5,3) {
             @Override
             public boolean correcteFuncionament() {
                 return false;
