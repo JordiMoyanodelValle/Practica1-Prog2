@@ -1,18 +1,31 @@
 package prog2.model;
 
 public class BungalowPremium extends Bungalow{
-    private boolean llençols;
-    private boolean tovalloles;
-    private String Wifi;
+
+    private boolean serveisExtra;
+    private String codiWifi;
 
     public BungalowPremium(String nom, String id, String mida, int habitacions, int capacitat, int placesParking,
-                           boolean terrasa, boolean tv, boolean aireFred, boolean llençols , boolean tovalloles, String Wifi) {
-        super(nom, id, mida, habitacions, capacitat, placesParking, terrasa, tv, aireFred);
-        this.llençols = llençols;
-        this.tovalloles = tovalloles;
-        this.Wifi = Wifi;
+                           boolean terrassa, boolean tv, boolean aireFred, boolean serveisExtra, String codiWifi) {
+        super(nom, id, mida, habitacions, capacitat, placesParking, terrassa, tv, aireFred);
+        this.serveisExtra = serveisExtra;
+        this.codiWifi = codiWifi;
     }
 
-    public
+    public boolean isServeisExtra() {
+        return serveisExtra;
+    }
+
+    public void setServeisExtra(boolean serveisExtra) {
+        this.serveisExtra = serveisExtra;
+    }
+
+    public String getCodiWifi () {
+        return codiWifi;
+    }
+
+    public void setCodiWifi(String codiWifi) {
+        this.codiWifi = codiWifi;
+    }
 
 }
