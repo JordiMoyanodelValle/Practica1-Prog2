@@ -27,4 +27,5 @@ public class Parcela extends Allotjament {
     public void setConnexioElectrica(boolean con){
         this.connexioElectrica = con;
     }
+
 }

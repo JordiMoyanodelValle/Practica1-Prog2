@@ -2,7 +2,7 @@ package prog2.model;
 import prog2.vista.ExcepcioReserva;
 
 import java.time.LocalDate;
-import java.util.*;
+
 import java.util.ArrayList;
 
 public class Camping implements InCamping{
