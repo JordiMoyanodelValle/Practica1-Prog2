@@ -5,16 +5,12 @@ public class Casa extends Allotjament{
     private String mida;
     private int habitacions;
     private int placesPersones;
-    private long estadaMinimaALTA;
-    private long estadaMinimaBAIXA;
 
     public Casa (String nom, String idAllotjament, String mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA) {
         super(nom, idAllotjament, estadaMinimaALTA, estadaMinimaBAIXA);
         this.mida = mida;
         this.habitacions = habitacions;
         this.placesPersones = placesPersones;
-        this.estadaMinimaALTA = estadaMinimaALTA;
-        this.estadaMinimaBAIXA = estadaMinimaBAIXA;
     }
 
     public String getMida() {
@@ -39,18 +35,5 @@ public class Casa extends Allotjament{
 
     public void setPlacesPersones(int capacitat) {
         this.placesPersones = capacitat;
-    }
-
-    public void setEstadaMinimaALTA(long estadaMinimaALTA) {
-        this.estadaMinimaALTA = estadaMinimaALTA;
-    }
-    public long getEstadaMinimaALTA() {
-        return estadaMinimaALTA;
-    }
-    public void setEstadaMinimaBAIXA(long estadaMinimaBAIXA) {
-        this.estadaMinimaBAIXA = estadaMinimaBAIXA;
-    }
-    public long getEstadaMinimaBAIXA() {
-        return estadaMinimaBAIXA;
     }
 }

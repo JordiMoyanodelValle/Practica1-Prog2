@@ -6,8 +6,6 @@ public class Bungalow extends Casa {
     private boolean terrassa;
     private boolean tv;
     private boolean aireFred;
-    private long estadaMinimaALTA;
-    private long estadaMinimaBAIXA;
 
     public Bungalow (String nom, String Id, String mida , int capacitat,
                      int habitacions , int placesParquing, boolean terrassa, boolean tv, boolean aireFred) {
