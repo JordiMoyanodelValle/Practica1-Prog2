@@ -2,6 +2,7 @@ package prog2.model;
 import prog2.vista.ExcepcioReserva;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 
@@ -14,6 +15,7 @@ public class LlistaReserves implements InLlistaReserves {
 
     public void afegirReserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
         // Com hem ficat una funció per validar la estada a Allotjament.java , la fem servir aqui.
+        long TempsEntreEntradaiSortida = ChronoUnit.DAYS.between(dataEntrada, dataSortida);
         allotjament.validarEstada(dataEntrada, dataSortida);
         if (dataEntrada == null || dataSortida == null){
             throw new ExcepcioReserva("Has de posar una data de entrada i una de sortida.");
@@ -22,7 +24,11 @@ public class LlistaReserves implements InLlistaReserves {
             throw new ExcepcioReserva("La data d'entrada ha de ser anterior a la data de sortida.");
         }
         else if (!allotjament.correcteFuncionament()){
-            throw new ExcepcioReserva("Has d'escollir un allotjament amb un funcionament correcte.");
+            throw new ExcepcioReserva("Has d'escollir un allotjament amb un funcionament correcte, l'allotjament amb id "+ allotjament.getId()+"no te un funcionament correcte.");
+
+        }
+        else if (TempsEntreEntradaiSortida < allotjament.getEstadaMinima(allotjament.getTemporada(dataEntrada))){
+            throw new ExcepcioReserva("Les dates sol·licitades pel client"+client.getNom()+" amb DNI:"+client.getDni()+ " no compleixen l'estada mínima per l'allotjament amb identificador "+allotjament.getId()+".");
 
         }
         /* Aquest for el que fa es comprovar de totes les reserves, si hi ha alguna que sigui del mateix allotjament
@@ -32,7 +38,7 @@ public class LlistaReserves implements InLlistaReserves {
 
         for (Reserva reserva : llistaReserves) {
             if( (reserva.getAllotjament().equals(allotjament)) && (reserva.getDataSortida().isAfter(dataEntrada) || reserva.getDataEntrada().isBefore(dataSortida)) ){
-                throw new ExcepcioReserva("No està disponible");
+                throw new ExcepcioReserva("L’allotjament amb identificador "+allotjament.getId()+" no està disponible en la data demanada"+dataEntrada+" pel client "+client.getNom()+" amb DNI: "+client.getDni()+".");
             }
         }
         Reserva novaReserva = new Reserva (client, allotjament, dataEntrada, dataSortida);
@@ -41,5 +47,8 @@ public class LlistaReserves implements InLlistaReserves {
 
     public int getNumReserves() {
         return llistaReserves.size();
+    }
+    public ArrayList<Reserva> getReserves() {
+        return llistaReserves;
     }
 }
