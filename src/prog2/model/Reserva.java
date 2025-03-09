@@ -53,4 +53,9 @@ public class Reserva {
     public void setDataSortida(LocalDate data) {
         this.dataSortida = data;
     }
+
+    public String toString() {
+        return "La reserva del client "+ client.toString() + " és del allotjament " + allotjament.getNom() + " amb id " + allotjament.getId() +
+                " és del dia " + dataEntrada + " fins al dia " + dataSortida + ".";
+    }
 }
