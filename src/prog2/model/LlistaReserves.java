@@ -32,7 +32,7 @@ public class LlistaReserves implements InLlistaReserves {
 
         for (Reserva reserva : llistaReserves) {
             if( (reserva.getAllotjament().equals(allotjament)) && (reserva.getDataSortida().isAfter(dataEntrada) || reserva.getDataEntrada().isBefore(dataSortida)) ){
-                throw new ExcepcioReserva("No està disponible");
+                throw new ExcepcioReserva("No està disponible, ja ha sigut reservada en la data demanada");
             }
         }
         Reserva novaReserva = new Reserva (client, allotjament, dataEntrada, dataSortida);
@@ -41,5 +41,8 @@ public class LlistaReserves implements InLlistaReserves {
 
     public int getNumReserves() {
         return llistaReserves.size();
+    }
+    public ArrayList<Reserva> getReserves() {
+        return llistaReserves;
     }
 }

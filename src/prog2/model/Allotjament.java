@@ -82,6 +82,13 @@ public class Allotjament implements InAllotjament {
         if (temp == Temp.ALTA) return this.estadaMinimaALTA;
         else return this.estadaMinimaBAIXA;
     }
+    public long getEstadaMinimaTemporadaAlta() {
+        return this.estadaMinimaALTA;
+
+    }
+    public long getEstadaMinimaTemporadaBaixa() {
+        return this.estadaMinimaBAIXA;
+    }
 
     public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_) {
         this.estadaMinimaALTA = estadaMinimaALTA_;
