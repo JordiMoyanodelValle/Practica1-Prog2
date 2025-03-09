@@ -132,16 +132,6 @@ public class Camping implements InCamping{
         }
         return numAllotjaments;
     }
-
-    public Allotjament getAllotjamentEstadaMesCurta() {
-        Allotjament allMesCurta = null;
-        for (Allotjament allotjament : llistaAllotjaments) {
-            if (allotjament.getEstadaMinima(InAllotjament.Temp.BAIXA) <= allMesCurta.getEstadaMinima(InAllotjament.Temp.BAIXA)) {
-                allMesCurta = allotjament;
-            }
-        }
-        return allMesCurta;
-    }
     public static InAllotjament.Temp getTemporada(LocalDate data){
         int dia = data.getDayOfMonth();
         int mes = data.getMonthValue();
@@ -152,5 +142,5 @@ public class Camping implements InCamping{
             return InAllotjament.Temp.BAIXA;
         }
     }
-
 }
+

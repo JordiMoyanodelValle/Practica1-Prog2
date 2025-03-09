@@ -51,12 +51,7 @@ public class GestorCamping {
         // >> El número total d'allotjaments del Càmping és X dels quals X allotjaments estan operatius.
 
         int totalAllotjaments = llistaAllotjaments.size();
-        int totalAllotjamentsCorrecteFuncionament=0;
-        for (Allotjament allotjament : llistaAllotjaments){
-            if (allotjament.correcteFuncionament()){
-                totalAllotjamentsCorrecteFuncionament++;
-            }
-        }
+        int totalAllotjamentsCorrecteFuncionament= campingMar.calculAllotjamentsOperatius();
         System.out.println("El número total d'allotjaments del Càmping és "+totalAllotjaments+" dels quals "+totalAllotjamentsCorrecteFuncionament+" allotjaments estan operatius.");
 
         // Mostrar l'allotjament amb estada mínima de la temporada baixa més curta amb el següent missatge:

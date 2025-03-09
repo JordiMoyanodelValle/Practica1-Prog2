@@ -101,7 +101,7 @@ public class Allotjament implements InAllotjament {
     // He afegit , per validar la estada depenen de quin dia comença aquesta.
     public void validarEstada(LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
         long dies = java.time.temporal.ChronoUnit.DAYS.between(dataEntrada, dataSortida);
-        Temp temporada = Camping.getTemporada(dataEntrada);
+        Temp temporada = Allotjament.getTemporada(dataEntrada);
         long estadaMinima = getEstadaMinima(temporada);
 
         if (dies < estadaMinima) {
@@ -112,5 +112,15 @@ public class Allotjament implements InAllotjament {
         return "Nom=" + nom + ", Id=" + idAllotjament +
                 ", estada mínima en temp ALTA: " + this.estadaMinimaALTA +
                 ", estada mínima en temp BAIXA: " + this.estadaMinimaBAIXA + ".";
+    }
+    public static Temp getTemporada(LocalDate data){
+        int dia = data.getDayOfMonth();
+        int mes = data.getMonthValue();
+
+        if ((mes > 3 && mes < 9) || (mes == 3 && dia >= 21) || (mes == 9 && dia < 21)) {
+            return InAllotjament.Temp.ALTA;
+        } else {
+            return InAllotjament.Temp.BAIXA;
+        }
     }
 }
