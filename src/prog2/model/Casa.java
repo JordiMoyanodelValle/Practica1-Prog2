@@ -47,4 +47,10 @@ public class Casa extends Allotjament{
     public long getEstadaMinimaALTA() {
         return estadaMinimaALTA;
     }
+    public void setEstadaMinimaBAIXA(long estadaMinimaBAIXA) {
+        this.estadaMinimaBAIXA = estadaMinimaBAIXA;
+    }
+    public long getEstadaMinimaBAIXA() {
+        return estadaMinimaBAIXA;
+    }
 }
