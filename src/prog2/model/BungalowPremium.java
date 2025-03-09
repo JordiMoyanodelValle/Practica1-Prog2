@@ -4,8 +4,7 @@
 
         private boolean serveisExtra;
         private String codiWifi;
-        private long estadaMinimaALTA;
-        private long estadaMinimaBAIXA;
+
 
         public BungalowPremium(String nom, String id, String mida, int habitacions, int capacitat, int placesParking,
                                boolean terrassa, boolean tv, boolean aireFred, boolean serveisExtra, String codiWifi) {
