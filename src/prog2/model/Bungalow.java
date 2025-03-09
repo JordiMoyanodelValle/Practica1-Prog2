@@ -1,7 +1,7 @@
 package prog2.model;
 
 public class Bungalow extends Casa {
-
+    //Definim els atributs i el constructor (si te super es perque herencia d'una clase superior)
     private int placesParquing;
     private boolean terrassa;
     private boolean tv;
@@ -16,7 +16,7 @@ public class Bungalow extends Casa {
         this.tv = tv;
         this.aireFred = aireFred;
     }
-
+    //Fem tots els getters i setters
     public int getPlacesParquing() {
         return placesParquing;
     }

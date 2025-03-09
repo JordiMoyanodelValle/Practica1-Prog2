@@ -1,7 +1,7 @@
     package prog2.model;
 
     public class BungalowPremium extends Bungalow{
-
+        //Definim els atributs i el constructor (si te super es perque herencia d'una clase superior)
         private boolean serveisExtra;
         private String codiWifi;
 
@@ -12,7 +12,7 @@
             this.serveisExtra = serveisExtra;
             this.codiWifi = codiWifi;
         }
-
+        //Fem tots els getters i setters
         public boolean isServeisExtra() {
             return serveisExtra;
         }

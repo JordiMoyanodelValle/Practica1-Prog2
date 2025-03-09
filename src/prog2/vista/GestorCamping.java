@@ -32,19 +32,10 @@ public class GestorCamping {
 
         // Calcular la mida total de les parcel·les (en M^2) del Càmping i mostrar un missatge de la següent manera:
         // >> La mida total de les parcel·les del Càmping del Mar és de X m^2)
-        //--------------------------------------------------------------------------------------------------------------------
-        // Per completar
 
-        float midaTotalParceles =0;
         ArrayList<Allotjament> llistaAllotjaments = campingMar.getLlistaAllotjaments();
-        for (Allotjament allotjament : llistaAllotjaments) {
-            if (allotjament instanceof Parcela){
-                Parcela parcela = (Parcela) allotjament;
-                midaTotalParceles += parcela.getMida();
-
-            }
-        }
-        System.out.println("La mida total de les parcel·les del Càmping del Mar és de "+ midaTotalParceles + " m^2)");
+        float midaTotalParceles = campingMar.calculMidaTotalParceles();
+        System.out.println("La mida total de les parcel·les del Càmping del Mar és de "+ midaTotalParceles + " m^2");
 
 
         // Mostrar el número total d'allotjaments del Càmping i el número d'allotjaments que estan operatius amb el següent missatge:
@@ -56,8 +47,7 @@ public class GestorCamping {
 
         // Mostrar l'allotjament amb estada mínima de la temporada baixa més curta amb el següent missatge:
         // >> L'allotjament amb estada mínima de la temporada baixa més curta és el següent:
-        //--------------------------------------------------------------------------------------------------
-        // Per completar
+
         long estadaMinimaMenor= Long.MAX_VALUE;
         Allotjament allotjamentEstadaMinimaMesCurta = null;
         for (Allotjament allotjament : llistaAllotjaments){

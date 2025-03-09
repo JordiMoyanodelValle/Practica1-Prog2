@@ -10,7 +10,7 @@ public class Glamping extends Casa{
         this.material = material;
         this.casaMascotas = casaMascotas;
     }
-
+    //Fem tots els getters i setters
     public String getMaterial() {
         return material;
     }

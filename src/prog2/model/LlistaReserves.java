@@ -7,15 +7,16 @@ import java.util.ArrayList;
 
 
 public class LlistaReserves implements InLlistaReserves {
-
+    //Definim els atributs i el constructor , en aquest cas es molt basic perque només creem una array list
     private ArrayList<Reserva> llistaReserves;
     public LlistaReserves(){
         this.llistaReserves = new ArrayList<>();
     }
 
     public void afegirReserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
-        // Com hem ficat una funció per validar la estada a Allotjament.java , la fem servir aqui.
+        //Fem un long que guardi la diferencia de dies entre la entrada i la sortida
         long TempsEntreEntradaiSortida = ChronoUnit.DAYS.between(dataEntrada, dataSortida);
+        // Com hem ficat una funció per validar la estada a Allotjament.java , la fem servir aqui.
         allotjament.validarEstada(dataEntrada, dataSortida);
         if (dataEntrada == null || dataSortida == null){
             throw new ExcepcioReserva("Has de posar una data de entrada i una de sortida.");
@@ -48,7 +49,5 @@ public class LlistaReserves implements InLlistaReserves {
     public int getNumReserves() {
         return llistaReserves.size();
     }
-    public ArrayList<Reserva> getReserves() {
-        return llistaReserves;
-    }
+
 }

@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.ArrayList;
 
 public class Camping implements InCamping{
-
+    //Definim els atributs i el constructor
     private final String nom;
     private LlistaReserves llistaReserves;
     private ArrayList<Allotjament> llistaAllotjaments;

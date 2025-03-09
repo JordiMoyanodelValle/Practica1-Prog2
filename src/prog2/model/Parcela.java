@@ -1,7 +1,7 @@
 package prog2.model;
 
 public class Parcela extends Allotjament {
-
+    //Definim els atributs i el constructor (si te super es perque herencia d'una clase superior)
     private float metres;
     private boolean connexioElectrica;
 
@@ -11,7 +11,7 @@ public class Parcela extends Allotjament {
         this.metres = metres;
         this.connexioElectrica = conexioElectrica;
     }
-
+    //Fem tots els getters i setters
     public float getMida(){
         return metres;
     }

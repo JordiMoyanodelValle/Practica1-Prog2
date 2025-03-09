@@ -5,7 +5,7 @@ import prog2.vista.ExcepcioReserva;
 import java.time.LocalDate;
 
 public class Reserva {
-
+    //Definim els atributs i el constructor (si te super es perque herencia d'una clase superior)
     private Client client;
     private Allotjament allotjament;
     private LocalDate dataEntrada;
@@ -21,7 +21,7 @@ public class Reserva {
         }
 
     }
-
+    //Fem tots els getters i setters
     public Allotjament getAllotjament() {
         return allotjament;
     }

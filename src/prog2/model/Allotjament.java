@@ -4,7 +4,7 @@ import prog2.vista.ExcepcioReserva;
 import java.time.LocalDate;
 
 public class Allotjament implements InAllotjament {
-
+//Definim els atributs i el constructor (si te super es perque herencia d'una clase superior)
     private String nom;
     private String idAllotjament;
     private long estadaMinimaALTA;
@@ -17,7 +17,7 @@ public class Allotjament implements InAllotjament {
         this.estadaMinimaBAIXA = EstadaMinimaBAIXA;
 
     }
-
+//Fem tots els getters i setters
     public String getNom() {
         return this.nom;
     }
@@ -33,7 +33,7 @@ public class Allotjament implements InAllotjament {
     public String getId() {
         return idAllotjament;
     }
-
+//Definim la funció amb la que sabrem si l'allotjament te un correcte funcionament , i el criteri de cada tipus de allotjament
     public boolean correcteFuncionament() {
 
         if (this instanceof Parcela) {
@@ -82,6 +82,7 @@ public class Allotjament implements InAllotjament {
         if (temp == Temp.ALTA) return this.estadaMinimaALTA;
         else return this.estadaMinimaBAIXA;
     }
+    //No son necessaris pero fa més rapids algunes altres funcions així no tenim que cridar a la funció getTemporada
     public long getEstadaMinimaTemporadaAlta() {
         return this.estadaMinimaALTA;
 
